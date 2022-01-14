@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "@shopify/polaris/build/esm/styles.css";
+import enTranslations from "@shopify/polaris/locales/en.json";
+import { AppProvider } from "@shopify/polaris";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AppProvider i18n={enTranslations}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </AppProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

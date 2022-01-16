@@ -1,12 +1,5 @@
 import React, { useState, useCallback } from "react";
-import {
-  Card,
-  DatePicker,
-  Stack,
-  Button,
-  Collapsible,
-  TextField,
-} from "@shopify/polaris";
+import { Card, DatePicker, Stack, Button, Collapsible } from "@shopify/polaris";
 
 function Calendar({ parentCallback }) {
   const [{ month, year }, setDate] = useState({ month: 0, year: 2022 });
@@ -27,11 +20,12 @@ function Calendar({ parentCallback }) {
   );
 
   return (
-    <div style={{ margin: "1em 0" }}>
+    <div className="calendar">
       <Card sectioned>
         <Stack vertical>
           <Button
             fullWidth
+            alt="Expand or Collapse the section"
             onClick={handleToggle}
             disclosure={open ? "up" : "down"}
             ariaExpanded={open}
@@ -46,7 +40,7 @@ function Calendar({ parentCallback }) {
             expandOnPrint
           >
             <Card>
-              <div style={{ margin: "20px" }}>
+              <div className="picker">
                 <DatePicker
                   month={month}
                   year={year}
@@ -56,9 +50,10 @@ function Calendar({ parentCallback }) {
                   disableDatesAfter={today}
                   disableDatesBefore={date}
                 />
-                <div style={{ paddingBottom: "1em" }}>
+                <div className="calendar-button">
                   <Button
                     primary
+                    alt="Get posts from the selected date"
                     onClick={() => parentCallback(selectedDates.start)}
                   >
                     Get Posts

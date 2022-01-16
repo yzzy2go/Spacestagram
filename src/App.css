@@ -1,6 +1,13 @@
-.App {
-  background: rgb(30, 34, 49);
-  padding-bottom: 2em;
+.calendar {
+  margin: 1em 0;
+}
+
+.calendar .picker {
+  margin: 1em;
+}
+
+.calendar .calendar-button {
+  padding-bottom: 1em;
 }
 
 .gradient {
@@ -17,9 +24,18 @@
   text-align: left;
 }
 
+.cards h4 {
+  margin-top: 1em;
+}
+
 .footer {
   position: "relative";
   left: "0";
   bottom: "0";
   right: "0";
+  margin-top: 2em;
+}
+
+.spinner {
+  height: 100vh;
 }

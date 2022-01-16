@@ -8,7 +8,7 @@ function Navbar() {
       <AppBar position="static" className="gradient">
         <Grid container alignItems="center" justifyContent="center">
           <Grid item xs></Grid>
-          <Grid item xs={10} md={6}>
+          <Grid item xs={10} md={4}>
             <Toolbar>
               <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
                 Spacestagram

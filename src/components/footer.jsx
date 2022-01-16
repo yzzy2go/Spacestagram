@@ -1,17 +1,24 @@
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Link } from "@material-ui/core";
 
-function Navbar() {
+function Footer() {
   return (
-    <div>
-      <AppBar position="static" className="gradient footer">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Created with NASA's APOD API
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="static" className="gradient footer">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          2022 @yzzy2go
+        </Typography>
+        <Link href="https://github.com/yzzy2go" style={{ marginLeft: "1em" }}>
+          GitHub
+        </Link>
+        <Link
+          href="https://www.linkedin.com/in/yzabelle-go/"
+          style={{ marginLeft: "1em" }}
+        >
+          LinkedIn
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
 }
-export default Navbar;
+export default Footer;

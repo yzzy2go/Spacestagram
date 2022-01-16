@@ -35,27 +35,16 @@ class App extends React.Component {
   }
 
   apiCall(apiString) {
-    this.setState({
-      loading: true,
-    });
     fetch(apiString)
       .then((response) => response.json())
       .then((postData) => {
         this.setState({
-          posts: postData.map((post) => {
-            return {
-              date: post.date,
-              explanation: post.explanation,
-              image: post.url,
-              title: post.title,
-            };
-          }),
-        });
-      })
-      .then(() => {
-        this.setState({
+          posts: postData,
           loading: false,
         });
+      })
+      .catch((error) => {
+        throw error;
       });
   }
 
@@ -67,11 +56,19 @@ class App extends React.Component {
     }
   }
 
-  callback = (date) => {
+  handleCopy(url) {
+    navigator.clipboard.writeText(url);
+  }
+
+  callbackChangeDate = (date) => {
     var startDate =
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-    this.setState({ startDate: startDate });
+    this.setState({
+      startDate: startDate,
+      loading: true,
+    });
     this.apiCall(this.assembleApiString(startDate));
+    return startDate;
   };
 
   renderCards() {
@@ -90,51 +87,51 @@ class App extends React.Component {
               },
               pressed: this.state[i],
             }}
+            secondaryAction={{
+              content: "Copy Image Link",
+              onAction: () => {
+                this.handleCopy(currentPost.url);
+              },
+            }}
           >
             <img
-              alt=""
+              alt={currentPost.title}
               width="100%"
               height="100%"
               style={{
                 objectFit: "cover",
                 objectPosition: "center",
               }}
-              src={currentPost.image}
+              src={currentPost.url}
             />
           </MediaCard>
         ))}
+        <h4>Created using NASA's Astronomy Picture of the Day API.</h4>
       </div>
     );
   }
 
   renderContent() {
     return (
-      <div className="App">
-        <a id="button"></a>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="center"
-          align="center"
-        >
-          <Grid item xs></Grid>
-          <Grid item xs={10} md={6}>
-            <Calendar parentCallback={this.callback}></Calendar>
-            {this.state.loading ? this.renderSpinner() : this.renderCards()}
-          </Grid>
-          <Grid item xs></Grid>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        align="center"
+      >
+        <Grid item xs></Grid>
+        <Grid item xs={10} md={4}>
+          <Calendar parentCallback={this.callbackChangeDate}></Calendar>
+          {this.state.loading ? this.renderSpinner() : this.renderCards()}
         </Grid>
-      </div>
+        <Grid item xs></Grid>
+      </Grid>
     );
   }
 
   renderSpinner() {
     return (
-      <div
-        style={{
-          height: "100vh",
-        }}
-      >
+      <div className="spinner">
         <Spinner accessibilityLabel="Spinner example" size="large" />
       </div>
     );

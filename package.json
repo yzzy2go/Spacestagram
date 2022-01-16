@@ -1,6 +1,6 @@
 {
   "name": "spacestagram",
-  "homepage": "https://yzzy2go.github.io/spacestagram",
+  "homepage": "https://yzzy2go.github.io/Spacestagram",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,9 @@
     ]
   },
   "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
+  "devDependencies": {
     "mini-css-extract-plugin": "2.4.5"
   }
 }

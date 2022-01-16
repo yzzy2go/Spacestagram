@@ -2,7 +2,7 @@
   "name": "spacestagram",
   "homepage": "https://yzzy2go.github.io/Spacestagram",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@shopify/polaris": "^7.5.0",

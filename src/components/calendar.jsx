@@ -3,21 +3,25 @@ import { Card, DatePicker, Stack, Button, Collapsible } from "@shopify/polaris";
 
 function Calendar({ parentCallback }) {
   const [{ month, year }, setDate] = useState({ month: 0, year: 2022 });
+  const [open, setOpen] = useState(false);
+
+  // initial starting date set on the calendar
   const [selectedDates, setSelectedDates] = useState({
     start: new Date("January 1, 2022"),
     end: new Date("January 1, 2022"),
   });
-  const [open, setOpen] = useState(false);
 
-  const today = new Date();
-  const date = new Date(new Date().setDate(new Date().getDate() - 365));
-
+  // toggle for collapsing the calendar card
   const handleToggle = useCallback(() => setOpen((open) => !open), []);
 
   const handleMonthChange = useCallback(
     (month, year) => setDate({ month, year }),
     []
   );
+
+  // enabled date range for the calendar
+  const today = new Date();
+  const yearAgoToday = new Date(new Date().setDate(new Date().getDate() - 365));
 
   return (
     <div className="calendar">
@@ -48,7 +52,7 @@ function Calendar({ parentCallback }) {
                   onMonthChange={handleMonthChange}
                   selected={selectedDates}
                   disableDatesAfter={today}
-                  disableDatesBefore={date}
+                  disableDatesBefore={yearAgoToday}
                 />
                 <div className="calendar-button">
                   <Button

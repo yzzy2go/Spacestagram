@@ -13,6 +13,9 @@ class App extends React.Component {
       posts: [],
       loading: true,
       startDate: "2022-01-01",
+      nasaApiKey: process.env.REACT_APP_NASA_API_KEY,
+      startDateParam: "&start_date=",
+      endDateParam: "&end_date=",
     };
   }
 
@@ -20,10 +23,8 @@ class App extends React.Component {
     this.apiCall(this.assembleApiString(this.state.startDate));
   }
 
+  // format string for NASA's APOD API call
   assembleApiString(startDate) {
-    const nasaKey = "8na89LeHNg4pQ67PQxc3NaQ0KqqSQlhgFKI4uhgB";
-    const startDateParam = "&start_date=";
-    const endDateParam = "&end_date=";
     const today = new Date();
     const endDate =
       today.getFullYear() +
@@ -31,9 +32,10 @@ class App extends React.Component {
       (today.getMonth() + 1) +
       "-" +
       today.getDate();
-    return `https://api.nasa.gov/planetary/apod?api_key=${nasaKey}${startDateParam}${startDate}${endDateParam}${endDate}`;
+    return `https://api.nasa.gov/planetary/apod?api_key=${this.state.nasaApiKey}${this.state.startDateParam}${startDate}${this.state.endDateParam}${endDate}`;
   }
 
+  // make the request and set state with post data
   apiCall(apiString) {
     fetch(apiString)
       .then((response) => response.json())
@@ -48,6 +50,7 @@ class App extends React.Component {
       });
   }
 
+  // allows "liked" state of posts to be toggled
   handleLike(i) {
     var currentState = this.state[i];
     this.setState({ [i]: !currentState });
@@ -60,6 +63,7 @@ class App extends React.Component {
     navigator.clipboard.writeText(url);
   }
 
+  // callback used to make a request from the date set in the Calendar component
   callbackChangeDate = (date) => {
     var startDate =
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
@@ -68,8 +72,16 @@ class App extends React.Component {
       loading: true,
     });
     this.apiCall(this.assembleApiString(startDate));
-    return startDate;
   };
+
+  // loading state when waiting for api data
+  renderSpinner() {
+    return (
+      <div className="spinner">
+        <Spinner accessibilityLabel="Spinner" size="large" />
+      </div>
+    );
+  }
 
   renderCards() {
     return (
@@ -126,14 +138,6 @@ class App extends React.Component {
         </Grid>
         <Grid item xs></Grid>
       </Grid>
-    );
-  }
-
-  renderSpinner() {
-    return (
-      <div className="spinner">
-        <Spinner accessibilityLabel="Spinner example" size="large" />
-      </div>
     );
   }
 

@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Spacestagram
+Spacestagram is an app created for Shopify's Summer 2022 frontend internship.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Intro
+Spacestagram uses NASA's Astronomy Photo of the Day (APOD) API to display photos and their descriptions. These posts can be liked and are displayed in chronological order. 
 
-In the project directory, you can run:
+It initially loads pictures starting from January 1st, 2022 to the current day. There is a date picker component that allows users to change this start date (within the last year) and get pictures since then.  
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## View the project
+Spacestagram is hosted using GitHub Pages, you can visit this link to view it in your browser: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[yzzy2go.github.io/Spacestagram](https://yzzy2go.github.io/Spacestagram/)
 
-### `npm test`
+### Run the project locally
+1. Visit NASA's API page to obtain your API key for free: [Get NASA API Key](https://api.nasa.gov/) 
+2. Clone this repository ```git clone https://github.com/yzzy2go/Spacestagram.git```
+3. Navigate into the root folder ```cd Spacestagram```
+4. Install dependencies ```npm install```
+5. Create a ```.env``` file in the root of the project
+6. Create a variable for your api key: ```REACT_APP_NASA_API_KEY=<YOUR_KEY>```
+7. Open a terminal run ```npm start``` to start the app on localhost
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run tests: 
+```cd Spacestagram```
+```npm test```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology Used
+Spacestagram is built with React and tested with using Jest.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Shopify's design library [Polaris](https://polaris.shopify.com/) was used for most of the elements on the page and Google's [Material UI](https://mui.com/) for the grid system and headers.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Lighthouse](https://developers.google.com/web/tools/lighthouse) was a tool used to check accessibility of the site. 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Current Features
+Below is a list of current features in the app: 
+* Chronological feed of images from NASA's APOD API
+* Date picker to determine a date range for posts
+* Collapsible card to hide the date picker when not in use
+* Like button on posts
+* Link to copy the post image URL
+* Loading state that shows when waiting for the API to return data

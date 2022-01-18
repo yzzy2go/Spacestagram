@@ -20,11 +20,11 @@ Spacestagram is hosted using GitHub Pages, you can visit this link to view it in
 4. Install dependencies ```npm install```
 5. Create a ```.env``` file in the root of the project
 6. Create a variable for your api key: ```REACT_APP_NASA_API_KEY=<YOUR_KEY>```
-7. Open a terminal run ```npm start``` to start the app on localhost
+7. Open a terminal and run ```npm start``` to start the app on localhost
 
 To run tests: 
-```cd Spacestagram```
-```npm test```
+* ```cd Spacestagram```
+* ```npm test```
 
 
 ## Technology Used

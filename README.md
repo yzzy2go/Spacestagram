@@ -41,7 +41,7 @@ Below is a list of current features in the app:
 * Loading state that shows when waiting for the API to return data
 
 ### Date Picker
-The Date Picker defines the date range for all the posts displayed on the page. It initially loads pictures starting from January 1st, 2022 to the current day. 
+The Date Picker defines the date range for all the posts displayed on the page. It initially loads pictures starting from June 1st, 2023 to the current day. 
 
 Users can change this start date (to dates within the last year) and get pictures since then. For example, if November, 16th, 2021 was selected on the calendar and they press the "Get Posts" button, the page will repopulate with images from November 16, 2021, to the current date.  
 Dates in the future are disabled, and dates further than 365 days ago are also disabled - this was a decision made to limit the time taken waiting for data to be fetched from the API. 

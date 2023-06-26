@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       posts: [],
       loading: true,
-      startDate: "2023-06-01",
+      startDate: "2023-06-16",
       // nasaApiKey: process.env.REACT_APP_NASA_API_KEY,
       nasaApiKey: "b90vxhtsndEKiytLXhNV93D6ZOgCeUEaV8JWuU2G",
       startDateParam: "&start_date=",

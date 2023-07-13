@@ -2,13 +2,13 @@ import React, { useState, useCallback } from "react";
 import { Card, DatePicker, Stack, Button, Collapsible } from "@shopify/polaris";
 
 function Calendar({ parentCallback }) {
-  const [{ month, year }, setDate] = useState({ month: 0, year: 2022 });
+  const [{ month, year }, setDate] = useState({ month: 6, year: 2023 });
   const [open, setOpen] = useState(false);
 
   // initial starting date set on the calendar
   const [selectedDates, setSelectedDates] = useState({
-    start: new Date("January 1, 2022"),
-    end: new Date("January 1, 2022"),
+    start: new Date("July 1, 2023"),
+    end: new Date("July 1, 2023"),
   });
 
   // toggle for collapsing the calendar card
